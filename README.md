@@ -28,13 +28,10 @@ Ensure Docker and Docker Compose are installed on your machine to build and run 
     - Create a `.env` file at the root of the project.
     - Fill the `.env` file with your specific configuration:
         ```plaintext
-        DB_USER=adam
-        DB_PASSWORD=your_password
-        DB_NAME=your_database_name
-        DB_HOST=your_db_host
-        BUCKET_NAME=your_s3_bucket_name
-        PREFIX_LIST=your_s3_prefix_list
-        APP_ENV=production
+      DB_USER=db_user
+      DB_PASSWORD=db_password
+      DB_NAME=db_name
+      BUCKET_NAME=your_s3_bucket_name
         ```
    
 2. **Build and Run Docker Containers:**
