@@ -66,17 +66,31 @@ services:
       - spark-network
 
 
-
-  localstack:
-    image: localstack/localstack
-    ports:
-      - "4566:4566"
+  python-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.pythonS
+    command: ["100"]
     environment:
-      - SERVICES=s3
-      - DEFAULT_REGION=us-east-1
-      - DATA_DIR=/tmp/localstack/data
+      LOGGER_HOST: logstash
+      LOGGER_PORT: 5044
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_HOST: db
+      BUCKET_NAME: ${BUCKET_NAME}
+      PREFIX_LIST: 0/, 1/
+      APP_ENV: production
     networks:
       - spark-network
+    depends_on:
+      - db
+      - elasticsearch
+      - kibana
+      - logstash
+      - spark-master
+      - spark-worker
+
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.15.1
@@ -107,6 +121,17 @@ services:
     environment:
       - "ES_HOST=elasticsearch"
       - "ES_PORT=9200"
+    networks:
+      - spark-network
+
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=s3
+      - DEFAULT_REGION=us-east-1
+      - DATA_DIR=/tmp/localstack/data
     networks:
       - spark-network
 

@@ -19,6 +19,8 @@ WORKDIR /app
 COPY distributed_pe_processor distributed_pe_processor
 COPY setup.py setup.py
 
+RUN pip install --upgrade pip
+
 #install distributed_pe_processor package
 RUN python3 setup.py sdist && \
     pip3 install dist/distributed_pe_processor-0.1.tar.gz
