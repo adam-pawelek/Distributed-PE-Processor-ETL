@@ -81,3 +81,44 @@ The application uses the ELK stack for logging:
 
 ### Note
 - The Kibana dashboard is unprotected and doesn't require any credentials for access. Ensure proper network configurations to secure your data.
+
+
+---
+
+# Localstack 
+## Set up aws 
+### Install aws cli on ubuntu 
+```bash
+sudo apt  install awscli 
+```
+
+## Configure AWS CLI
+To interact with LocalStack, you need the AWS CLI tool installed on your machine. If you haven't installed it yet, you can download it from the AWS website.
+
+### Creating Credentials:
+LocalStack doesn't require real AWS credentials but uses dummy credentials. You can configure AWS CLI with any random credentials:
+
+```bash
+aws configure
+```
+When prompted, you can enter the following:
+
+AWS Access Key ID: test <br>
+AWS Secret Access Key: test <br>
+Default region name: your preferred region (e.g., us-east-1) <br>
+Default output format: json <br>
+
+## Create a Bucket
+To create a bucket in LocalStack, use the AWS CLI command with the endpoint URL pointing to your LocalStack instance:
+
+```bash
+aws --endpoint-url=http://localhost:4566 s3 mb s3://my-bucket
+```
+Replace my-bucket with your desired bucket name.
+
+## List Buckets
+To list all the buckets:
+
+```bash
+aws --endpoint-url=http://localhost:4566 s3 ls
+```
