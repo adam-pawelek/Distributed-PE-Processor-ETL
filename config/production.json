@@ -7,7 +7,8 @@
         "spark.hadoop.fs.s3a.path.style.access": true,
         "spark.hadoop.fs.s3a.connection.ssl.enabled": false,
         "spark.hadoop.fs.s3a.anonymous": true,
-        "spark.hadoop.fs.s3a.aws.credentials.provider": "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider"
+        "spark.hadoop.fs.s3a.aws.credentials.provider": "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider",
+        "spark.hadoop.fs.s3a.endpoint": "http://localstack:4566"
     },
     "metadata_table_name":"metadata_table",
     "db_file_path_column_name": "file_path"

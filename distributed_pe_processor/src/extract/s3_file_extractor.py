@@ -9,18 +9,19 @@ from distributed_pe_processor.src.extract.database_file_path_checker import Data
 
 
 class S3FileExtractor:
-    def __init__(self, spark, db_file_path_column_name: str, db_connection_data: ConnectionDatabaseDataModel, logger = logging.getLogger(__name__)):
+    def __init__(self, spark, db_file_path_column_name: str, db_connection_data: ConnectionDatabaseDataModel,bucket_endpoint: str, logger = logging.getLogger(__name__)):
         self.spark = spark
         self.db_connection_data = db_connection_data
         self.db_file_path_column_name = db_file_path_column_name
         self.logger = logger
+        self.bucket_endpoint = bucket_endpoint
 
 
 
     def _get_s3_client(self):
         """Initialize and get S3 client."""
         logging.info("Initializing S3 client")
-        return boto3.client('s3', config=boto3.session.Config(signature_version=botocore.UNSIGNED))
+        return boto3.client('s3', config=boto3.session.Config(signature_version=botocore.UNSIGNED), endpoint_url= self.bucket_endpoint)
 
     def _get_s3_files(self, s3_client, bucket_name, prefix):
         """Retrieve file paths from S3 bucket."""

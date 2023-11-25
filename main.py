@@ -71,6 +71,7 @@ def main():
         number_files_to_process=number_files_to_process,
         prefix_list=prefix_list,
         bucket_name=os.getenv('BUCKET_NAME'),
+        bucket_endpoint=None if os.getenv('BUCKET_ENDPOINT_URL') in [None,"None",""] else os.getenv('BUCKET_ENDPOINT_URL'),
         logger=logger,
         db_file_path_column_name=load_config(os.getenv("APP_ENV"))["db_file_path_column_name"]
     )

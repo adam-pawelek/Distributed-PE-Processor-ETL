@@ -70,7 +70,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.pythonS
-    command: ["100"]
+    command: ["5"]
     environment:
       LOGGER_HOST: logstash
       LOGGER_PORT: 5044
@@ -129,7 +129,7 @@ services:
     ports:
       - "4566:4566"
     environment:
-      - SERVICES=s3
+      - SERVICES=s3,dynamodb,sqs
       - DEFAULT_REGION=us-east-1
       - DATA_DIR=/tmp/localstack/data
     networks:

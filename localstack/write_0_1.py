@@ -17,10 +17,10 @@ bucket_policy = {
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "AddPublicReadAccess",
+            "Sid": "PublicReadGetObject",
             "Effect": "Allow",
             "Principal": "*",
-            "Action": "s3:GetObject",
+            "Action": ["s3:GetObject", "s3:GetObjectVersion"],
             "Resource": f"arn:aws:s3:::{BUCKET_NAME}/*"
         }
     ]
@@ -49,22 +49,20 @@ def upload_files_to_s3(local_directory, bucket, destination):
 # Replace '0' with the path to your local directory if it's different
 local_directory = '0'
 
-# S3 bucket name
-bucket_name = 'my-bucket'
+
 
 # S3 destination folder
 s3_destination = '0'
 
 # Upload files
-upload_files_to_s3(local_directory, bucket_name, s3_destination)
+upload_files_to_s3(local_directory, BUCKET_NAME, s3_destination)
 
 local_directory = '1'
 
-# S3 bucket name
-bucket_name = 'my-bucket'
+
 
 # S3 destination folder
 s3_destination = '1'
 
 # Upload files
-upload_files_to_s3(local_directory, bucket_name, s3_destination)
+upload_files_to_s3(local_directory, BUCKET_NAME, s3_destination)
