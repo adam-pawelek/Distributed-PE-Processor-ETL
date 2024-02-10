@@ -3,7 +3,7 @@ import botocore
 from botocore.exceptions import NoCredentialsError
 
 BUCKET_NAME = "my-bucket"  # replace with your bucket name
-FILE_NAME = "0/0efb5DodbKCV2ELUQMqhYaVUk6iOIwlA.dll"  # replace with the name of your file
+FILE_NAME = "../0/0efb5DodbKCV2ELUQMqhYaVUk6iOIwlA.dll"  # replace with the name of your file
 LOCAL_FILE_PATH = "0efb5DodbKCV2ELUQMqhYaVUk6iOIwlA.dll"  # replace with the local path where you want to save the file
 ENDPOINT_URL = "http://localhost:4566"  # the endpoint URL
 

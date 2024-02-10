@@ -46,7 +46,7 @@ You can modify the number of files to be downloaded by adjusting the `CMD` value
    python-app:
      build:
        context: .
-       dockerfile: Dockerfile.pythonS
+       dockerfile: Dockerfile.spark.pythonS
      command: ["1000000"]
    ```
 In your Dockerfile, you might have an entry similar to:

@@ -26,7 +26,7 @@ services:
   spark-master:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.spark
     environment:
       - SPARK_MODE=master
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
@@ -47,7 +47,7 @@ services:
   spark-worker:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.spark
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
@@ -69,7 +69,7 @@ services:
   python-app:
     build:
       context: .
-      dockerfile: Dockerfile.pythonS
+      dockerfile: Dockerfile.app
     command: ["5"]
     environment:
       LOGGER_HOST: logstash
