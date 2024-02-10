@@ -1,0 +1,17 @@
+FROM python:3.11-slim
+
+# Set environment variables for AWS credentials
+# Replace these with your actual credentials or use a different method to set them
+ENV AWS_ACCESS_KEY_ID=your_access_key_here
+ENV AWS_SECRET_ACCESS_KEY=your_secret_access_key_here
+ENV AWS_DEFAULT_REGION=us-east-1
+
+
+
+COPY . .
+
+WORKDIR /localstack
+
+RUN pip install --no-cache-dir -r requirements-setup-localstack.txt
+
+ENTRYPOINT ["python3", "setup_localstack.py"]

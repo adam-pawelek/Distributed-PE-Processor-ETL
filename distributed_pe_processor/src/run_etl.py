@@ -18,8 +18,8 @@ def extract_files_from_s3(spark, extractor, number_files_to_process, prefix_list
     return concatenated_rdd
 
 
-def run_etl(spark, db_connection_data, number_files_to_process, prefix_list, bucket_name, logger, db_file_path_column_name):
-    extractor = S3FileExtractor(spark=spark, db_file_path_column_name=db_file_path_column_name, db_connection_data=db_connection_data,logger=logger)
+def run_etl(spark, db_connection_data, number_files_to_process, prefix_list, bucket_name,bucket_endpoint, logger, db_file_path_column_name):
+    extractor = S3FileExtractor(spark=spark, db_file_path_column_name=db_file_path_column_name, db_connection_data=db_connection_data, bucket_endpoint=bucket_endpoint, logger=logger)
     binary_files_rdd = extract_files_from_s3(spark=spark, extractor=extractor, number_files_to_process=number_files_to_process, prefix_list=prefix_list, bucket_name=bucket_name)
     metadata_rdd = file_transformer.transform_files_to_metadata(binary_files_rdd=binary_files_rdd, logger=logger)
     db_loader.load_to_db(metadata_rdd=metadata_rdd, db_connection_data=db_connection_data, logger=logger)

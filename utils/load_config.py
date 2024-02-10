@@ -6,8 +6,8 @@ def load_config(environment):
     """
     Load JSON config based on the environment ('development' or 'production').
     """
-    if environment not in ('development', 'production'):
-        raise ValueError("environment must be either 'development' or 'production'")
+    if environment not in ('development', 'production', 'e2e'):
+        raise ValueError("environment must be either 'development', 'production' or 'e2e")
 
     config_path = os.path.join('config', f'{environment}.json')
 

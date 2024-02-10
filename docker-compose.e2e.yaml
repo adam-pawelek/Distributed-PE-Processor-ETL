@@ -1,15 +1,12 @@
-# Copyright VMware, Inc.
-# SPDX-License-Identifier: APACHE-2.0
-
 version: '3.7'
 
 services:
   db:
     image: postgres
     environment:
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=db_user
+      - POSTGRES_PASSWORD=db_password
+      - POSTGRES_DB=db_name
     ports:
       - "5432:5432"
     networks:
@@ -70,17 +67,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.app
-    command: ["5"]
+    command: ["4"]
     environment:
       LOGGER_HOST: logstash
       LOGGER_PORT: 5044
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_NAME: ${DB_NAME}
+      DB_USER: db_user
+      DB_PASSWORD: db_password
+      DB_NAME: db_name
       DB_HOST: db
-      BUCKET_NAME: ${BUCKET_NAME}
+      BUCKET_NAME: my-bucket
+      BUCKET_ENDPOINT_URL: http://localstack:4566
       PREFIX_LIST: 0/, 1/
-      APP_ENV: production
+      APP_ENV: e2e
     networks:
       - spark-network
     depends_on:
@@ -135,6 +133,23 @@ services:
     networks:
       - spark-network
 
+
+  setup-localstack:
+    build:
+      context: .
+      dockerfile: Dockerfile.setupAws
+    environment:
+      BUCKET_NAME: my-bucket
+      ENDPOINT_URL: http://localstack:4566
+    networks:
+      - spark-network
+    depends_on:
+      - db
+      - elasticsearch
+      - kibana
+      - logstash
+      - spark-master
+      - spark-worker
 networks:
   spark-network:
     driver: bridge
