@@ -21,9 +21,19 @@ This ETL (Extract, Transform, Load) project aims to extract metadata from Window
 ## Quick Start
 
 ### Prerequisites
-Ensure Docker and Docker Compose are installed on your machine to build and run the necessary containers for the application, database, and ELK stack.
-
+1. Ensure Docker and Docker Compose are installed on your machine to build and run the necessary containers for the application, database, and ELK stack.<br>
+2. **You have to have at least 10GB free ram to run the application.**
 ### Setup
+#### Development Environment (lazy start one command and app is up and running)
+1. **Environment Variables:**
+   all environment variables are set in the docker-compose.dev.yaml file
+2. **Build and Run Docker Containers:**
+    - Navigate to the project directory and run the following command:
+        ```sh
+        docker compose -f docker-compose.dev.yaml up --build
+        ```
+
+#### Production Environment
 1. **Environment Variables:** 
     - Create a `.env` file at the root of the project.
     - Fill the `.env` file with your specific configuration:
@@ -54,7 +64,8 @@ In your Dockerfile, you might have an entry similar to:
    ENTRYPOINT ["python3", "main.py"]
    CMD ["10000"]
    ```
-This means by default 10000 files will be downloaded unless the command in the docker-compose.prod.yaml overrides it (as in the example where it's set to 1000000).   
+This means by default 10000 files will be downloaded unless the command in the docker-compose.prod.yaml overrides it (as in the example where it's set to 1000000).
+Attention: The number of files to be downloaded should be less than the number of files in the S3 bucket.
 
 ### Accessing the Applications
 - **Spark Master Dashboard:** [http://localhost:8080/](http://localhost:8080/)
@@ -105,7 +116,8 @@ AWS Secret Access Key: test <br>
 Default region name: your preferred region (e.g., us-east-1) <br>
 Default output format: json <br>
 
-## Create a Bucket
+## Localstack S3 on localhost
+### Create a Bucket
 To create a bucket in LocalStack, use the AWS CLI command with the endpoint URL pointing to your LocalStack instance:
 
 ```bash
@@ -113,9 +125,30 @@ aws --endpoint-url=http://localhost:4566 s3 mb s3://my-bucket
 ```
 Replace my-bucket with your desired bucket name.
 
-## List Buckets
+### List Buckets
 To list all the buckets:
 
 ```bash
 aws --endpoint-url=http://localhost:4566 s3 ls
+```
+
+### List Bucket Contents
+To list the contents of a bucket:
+
+```bash
+aws --endpoint-url=http://localhost:4566 s3 ls s3://my-bucket
+```
+
+### List all files in a bucket
+To list all the files in a bucket:
+
+```bash
+aws --endpoint-url=http://localhost:4566 s3 ls s3://my-bucket --recursive
+```
+
+### Upload a File
+To upload a file to the bucket:
+
+```bash
+aws --endpoint-url=http://localhost:4566 s3 cp /path/to/local/file s3://my-bucket
 ```
