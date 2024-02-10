@@ -1,6 +1,6 @@
 {
     "spark_session_configs": {
-        "spark.app.name": "Display Two Random Files from Public S3 Bucket",
+        "spark.app.name": "Distributed-PE-Processor",
         "spark.master": "spark://spark-master:7077",
         "spark.jars.packages": "org.apache.hadoop:hadoop-aws:3.3.4,org.apache.hadoop:hadoop-common:3.3.4,com.amazonaws:aws-java-sdk-bundle:1.12.262,org.postgresql:postgresql:42.5.0",
         "spark.hadoop.fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem",

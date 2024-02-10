@@ -32,7 +32,7 @@ def load_to_db(metadata_rdd: pyspark.rdd.RDD, db_connection_data: ConnectionData
             properties=db_connection_data.properties
 
         )
-        logger.info(f"Successfully written DataFrame to PostgreSQL table: {db_connection_data.table_name}")
+        logger.info(f"The DataFrame has been successfully written to the PostgreSQL.: {db_connection_data.table_name}")
 
     except Exception as e:
         logger.error(f"Failed to load data to DB. Error: {str(e)}")
