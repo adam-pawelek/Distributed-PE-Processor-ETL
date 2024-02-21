@@ -3,6 +3,10 @@
 ## Overview
 This ETL (Extract, Transform, Load) project aims to extract metadata from Windows PE files stored in an S3 bucket, transform that data, and load it into a PostgreSQL database. 
 
+## Project diagram
+![spark_schema](https://github.com/adam-pawelek/Distributed-PE-Processor-ETL/assets/45467141/e0b713ae-76bb-461c-b7a3-54033305fbd4)
+
+
 ## Metadata Extracted
 - File path and size
 - File type (dll or exe)
