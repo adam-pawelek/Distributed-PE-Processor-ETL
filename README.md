@@ -15,8 +15,8 @@ This ETL (Extract, Transform, Load) project aims to extract metadata from Window
 - Number of exports (integer)
 
 ## Technology Stack
-- **PySpark:** Data processing
-- **Spark Cluster:** Consisting of master and worker containers (https://spark.apache.org/docs/latest/cluster-overview.html , https://medium.com/@MarinAgli1/setting-up-a-spark-standalone-cluster-on-docker-in-layman-terms-8cbdc9fdd14b)
+- **PySpark**: Utilized for large-scale data processing. [Learn more](https://spark.apache.org/docs/latest/api/python/index.html)
+- **Spark Cluster**: Comprises master and worker containers for distributed data processing. [Cluster Overview](https://spark.apache.org/docs/latest/cluster-overview.html) | [Setup Guide](https://medium.com/@MarinAgli1/setting-up-a-spark-standalone-cluster-on-docker-in-layman-terms-8cbdc9fdd14b)
 - **Python pefile Library:** For extracting metadata from Windows PE files
 - **PostgreSQL:** Database for storing extracted metadata
 - **Docker:** For creating and managing the application and database environments
