@@ -20,7 +20,7 @@ This ETL (Extract, Transform, Load) project aims to extract metadata from Window
 - **Python pefile Library:** For extracting metadata from Windows PE files [Github Repo](https://github.com/erocarrera/pefile)
 - **PostgreSQL:** Database for storing extracted metadata
 - **Docker:** For creating and managing the application and database environments
-- **Elasticsearch, Logstash, Kibana (ELK stack):** For logging and log visualization
+- ![ELK Stack Logo](https://www.elastic.co/static-res/images/elastic-logo-200.png) **Elasticsearch, Logstash, Kibana (ELK stack):** For logging and log visualization
 
 ## Quick Start
 
