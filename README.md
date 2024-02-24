@@ -1,4 +1,4 @@
-[![tests](https://github.com/adam-pawelek/Distributed-PE-Processor-ETL/actions/workflows/main.yml/badge.svg)](https://github.com/adam-pawelek/Distributed-PE-Processor-ETL/actions/workflows/main.yml)
+[![Run Pytest](https://github.com/adam-pawelek/Distributed-PE-Processor-ETL/actions/workflows/main.yml/badge.svg)](https://github.com/adam-pawelek/Distributed-PE-Processor-ETL/actions/workflows/main.yml)
 
 # Distributed-PE-Processor
 
