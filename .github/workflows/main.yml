@@ -1,4 +1,4 @@
-name: Run Pytest
+name: Test
 
 on:
   pull_request:
@@ -24,6 +24,6 @@ jobs:
         pip install pytest
         pip install -r requirements.txt
 
-    - name: Run tests
+    - name: Test
       run: |
         pytest
