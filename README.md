@@ -1,6 +1,5 @@
-[![Test](https://github.com/adam-pawelek/Distributed-PE-Processor-ETL/actions/workflows/main.yml/badge.svg)](https://github.com/adam-pawelek/Distributed-PE-Processor-ETL/actions/workflows/main.yml)
-
 # Distributed-PE-Processor
+[![Test](https://github.com/adam-pawelek/Distributed-PE-Processor-ETL/actions/workflows/main.yml/badge.svg)](https://github.com/adam-pawelek/Distributed-PE-Processor-ETL/actions/workflows/main.yml)
 
 ## Overview
 This ETL (Extract, Transform, Load) project aims to extract metadata from Windows PE files stored in an S3 bucket, transform that data, and load it into a PostgreSQL database. 
