@@ -7,6 +7,8 @@ This ETL (Extract, Transform, Load) project aims to extract metadata from Window
 ## Project diagram
 ![spark_schema](https://github.com/adam-pawelek/Distributed-PE-Processor-ETL/assets/45467141/e0b713ae-76bb-461c-b7a3-54033305fbd4)
 
+## Project description
+
 
 ## Metadata Extracted
 - File path and size
