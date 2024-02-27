@@ -10,6 +10,10 @@ This ETL (Extract, Transform, Load) project aims to extract metadata from Window
 ## Project description
 
 
+https://github.com/adam-pawelek/Distributed-PE-Processor-ETL/assets/45467141/417a2321-8fc5-48be-bbba-161ae90d35dd
+
+
+
 ## Metadata Extracted
 - File path and size
 - File type (dll or exe)
